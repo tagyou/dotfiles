@@ -52,6 +52,9 @@ function init() {
 	mkdir -p ~/.vim/
 	pwd=$PWD
 
+	# --- setup VSCode
+	setup_vscode
+
 	# --- backup exsiting .bash_profile
 	if [ -e ~/.bash_profile ]; then
 		mv ~/.bash_profile ~/.bash_profile_${TIME_STAMP}

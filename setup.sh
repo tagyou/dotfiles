@@ -20,10 +20,32 @@ function install_deps() {
 	elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
 		sudo apt install -y bash-completion
 	else
+		echo "Skip install bash-completion!"
 		echo "Your platform ($(uname -a)) is not supported."
 		exit 1
 	fi
 }
+
+function setup_vscode() {
+	if [ "$(uname)" == 'Darwin' ]; then
+		VSCODE_SETTING_DIR="~/Library/Application\ Support/Code/User"
+	else
+		echo "Skip setup VSCode!"
+		exit 1
+	fi
+
+	echo "[Init] Making symlinks"
+	echo "- .vimrc to ${pwd}"
+	rm "$VSCODE_SETTING_DIR/settings.json"
+	ln -sf ~/dotfiles/vscode/settings.json "${VSCODE_SETTING_DIR}/settings.json"
+
+	# install extention
+	cat ~/dotfiles/vscode/extensions | while read line
+	do
+		code --install-extension $line
+	done
+}
+
 
 function init() {
 	# --- make directories

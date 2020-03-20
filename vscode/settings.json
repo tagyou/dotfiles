@@ -1,0 +1,65 @@
+{
+    "editor.fontSize": 14,
+    "editor.fontFamily": "Ricty",
+    "editor.lineHeight": 16,
+    "editor.wordWrap": "on",
+    "editor.wrappingIndent": "same",
+    "vim.searchHighlightColor": "rgba(0, 200, 0, 0.5)",
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j","k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.openPositioning": "last",
+    "workbench.colorTheme": "Atom One Dark",
+    "workbench.activityBar.visible": true,
+
+    "python.linting.flake8Enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.formatting.provider": "autopep8",
+    "python.linting.flake8Args": [
+        "--max-line-length",
+        "88",
+        "--ignore=E302,E203,W503,W504",
+    ],
+    "python.formatting.autopep8Args": [
+      "--max-line-length",
+      "88",
+      "--aggressive",
+      "--aggressive",
+    ],
+    "explorer.confirmDelete": false,
+    "vsnotes.defaultNotePath": "/Users/JP25332/GoogleDrive/Notes",
+    "vsnotes.noteTitleConvertSpaces": " ",
+    "vsnotes.defaultNoteTitle": "{dt}_{title}.{ext}",
+    "vsnotes.tokens": [
+      {
+        "type": "datetime",
+        "token": "{dt}",
+        "format": "YYYY-MM-DD",
+        "description": "Insert formatted datetime."
+      },
+      {
+        "type": "title",
+        "token": "{title}",
+        "description": "Insert note title from input box.",
+        "format": "Untitled"
+      },
+      {
+        "type": "extension",
+        "token": "{ext}",
+        "description": "Insert file extension.",
+        "format": "md"
+      }
+    ],
+    "[markdown]":  {
+      "editor.wordWrap": "on",
+      "editor.quickSuggestions": true,
+      "editor.snippetSuggestions": "top"
+      }
+}

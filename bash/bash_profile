@@ -1,0 +1,36 @@
+#!/bin/sh
+
+# load local bashrc
+if [ -e ~/.bashrc_local ]; then
+    source ~/.bashrc_local
+fi
+
+# bash-completion
+if [ "$(uname)" == 'Darwin' ]; then
+	OS='Mac'
+	source $(brew --prefix)/etc/bash_completion
+elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+	OS='Linux'
+	source /etc/bash_completion.d/*
+else
+	echo "Your platform ($(uname -a)) is not supported."
+	exit 1
+fi
+
+# CLI prompt
+PS1="\[\033[32m\]\u@\h \[\033[36m\]\W $ \[\033[0m\]"
+
+# commands with color
+alias ls='ls -G'
+alias ll='ls -G -lha'
+alias la='ls -G -a'
+alias grep='grep --color=auto'
+
+# color diff
+export LESS='-R'
+alias diff='colordiff -u'
+
+# cd extension
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'

@@ -1,0 +1,68 @@
+" シンタックスハイライト
+syntax enable
+" 行番号を表示
+set number
+" vi互換をオフ
+set nocompatible
+" tabが押されたときに実際に挿入される空白の文字数
+set tabstop=4
+" オートインデント時に挿入される空白文字数
+set softtabstop=4
+" インデント時のタブ量
+ set shiftwidth=4
+" 対応する括弧を強調
+set showmatch
+" インクリメンタルサーチを有効にする
+set nocp incsearch
+" カーソルの前後に表示する最小の桁数
+set scrolloff=8
+" スワップファイルを作らない
+set noswapfile
+" バックアップファイル
+set backupdir=~/.vim/backup
+" Undoファイル
+set undodir=~/.vim/undo
+" バックスペースでインデントや開業を削除可能にする
+set backspace=indent,eol,start
+" ファイルブラウザが使うディレクトリをバッファで開いているファイルのディレクトリにする
+set browsedir=buffer
+" カーソル位置を常に表示
+set ruler
+" タブをスペースに
+set expandtab
+" カレント行をハイライト
+set cursorline
+" タブと行末スペースを可視化
+set list
+set listchars=tab:»\ ,trail:~
+" 自動インデント
+set autoindent
+" スマートインデント
+set smartindent
+" デフォルトvimrc_exampleのtextwidth設定上書き
+autocmd FileType text setlocal textwidth=0
+" visual mode時にペーストした場所をヤンクしない（連続ペースト用）
+vnoremap <silent> <C-p> "0p<CR>
+
+"---------------------------------
+" 画面分割の設定
+"---------------------------------
+" 新しいウィンドウを下に開く
+set splitbelow
+" 新しいウィンドウを右に開く
+set splitright
+" netrwで新しいウィンドウを下に分割する
+let g:netrw_alto = 1
+" netrwで新しいウィンドウを右に分割する
+let g:netrw_altv = 1
+
+"---------------------------------
+" クリップボードと連携
+"---------------------------------
+set clipboard+=unnamed
+
+"---------------------------------
+" netrwの設定
+"---------------------------------
+" 起動時はtree view
+let g:netrw_liststyle = 3

@@ -2,13 +2,13 @@
 
 TIME_STAMP=`date "+%Y_%m_%d_%H_%M"`
 
-ifunction usage() {
+function usage() {
 	echo "Usage: $0 [COMMANDS]"
 	echo
 	echo "COMMANDS:"
 	echo "  help        Show this help message and usage"
-	echo "  init        Init symbolic link file to ~/ "
-	echo "  clean       Clean synbolic link files on ~/ "
+	echo "  init        Install deps & Init symlinks to ~/ "
+	echo "  clean       Clean symlinks on ~/ "
 	echo
 	exit 1
 }
@@ -44,6 +44,13 @@ function init() {
 	ln -sf ~/dotfiles/vim/vimrc  ~/.vimrc
 	echo "- .bash_profile to ${pwd}"
 	ln -sf ~/dotfiles/bash/bash_profile  ~/.bash_profile
+}
+
+function clean() {
+	echo "- Remove .vimrc"
+	rm -rf ~/.vimrc
+	echo "- Remove .bash_profile"
+	rm -rf ~/.bash_profile
 }
 
 

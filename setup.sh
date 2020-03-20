@@ -8,6 +8,7 @@ function usage() {
 	echo "COMMANDS:"
 	echo "  help        Show this help message and usage"
 	echo "  init        Install deps & Init symlinks to ~/ "
+	echo "  save_vscode Save VSCode extension list to vscode/extension"
 	echo "  clean       Clean symlinks on ~/ "
 	echo
 	exit 1
@@ -26,20 +27,24 @@ function install_deps() {
 	fi
 }
 
+function save_vscode_extension() {
+    code --list-extensions > ~/dotfiles/vscode/extensions
+}
+
 function setup_vscode() {
 	if [ "$(uname)" == 'Darwin' ]; then
-		VSCODE_SETTING_DIR="~/Library/Application\ Support/Code/User"
+		VSCODE_SETTING_DIR="$HOME/Library/Application Support/Code/User"
 	else
 		echo "Skip setup VSCode!"
 		exit 1
 	fi
 
 	echo "[Init] Making symlinks"
-	echo "- .vimrc to ${pwd}"
-	rm "$VSCODE_SETTING_DIR/settings.json"
+	echo "- vscode/settings.json to $VSCODE_SETTING_DIR"
+	rm "${VSCODE_SETTING_DIR}/settings.json"
 	ln -sf ~/dotfiles/vscode/settings.json "${VSCODE_SETTING_DIR}/settings.json"
 
-	# install extention
+	# install extension
 	cat ~/dotfiles/vscode/extensions | while read line
 	do
 		code --install-extension $line
@@ -65,9 +70,9 @@ function init() {
 	fi
 
 	echo "[Init] Making symlinks"
-	echo "- .vimrc to ${pwd}"
+	echo "- .vimrc to ~/"
 	ln -sf ~/dotfiles/vim/vimrc  ~/.vimrc
-	echo "- .bash_profile to ${pwd}"
+	echo "- .bash_profile to ~/"
 	ln -sf ~/dotfiles/bash/bash_profile  ~/.bash_profile
 }
 
@@ -84,6 +89,9 @@ function main() {
 		"init")
 			install_deps
 			init
+			;;
+		"save_vscode")
+			clean
 			;;
 		"clean")
 			clean

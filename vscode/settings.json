@@ -34,7 +34,7 @@
       "--aggressive",
     ],
     "explorer.confirmDelete": false,
-    "vsnotes.defaultNotePath": "/Users/JP25332/GoogleDrive/Notes",
+    "vsnotes.defaultNotePath": "~/GoogleDrive/Notes",
     "vsnotes.noteTitleConvertSpaces": " ",
     "vsnotes.defaultNoteTitle": "{dt}_{title}.{ext}",
     "vsnotes.tokens": [
@@ -61,5 +61,6 @@
       "editor.wordWrap": "on",
       "editor.quickSuggestions": true,
       "editor.snippetSuggestions": "top"
-      }
+      },
+      "editor.renderIndentGuides": false
 }

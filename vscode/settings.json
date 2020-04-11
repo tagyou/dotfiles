@@ -62,5 +62,6 @@
       "editor.quickSuggestions": true,
       "editor.snippetSuggestions": "top"
       },
-      "editor.renderIndentGuides": false
+      "workbench.iconTheme": "material-icon-theme",
+      "material-icon-theme.opacity": 0.8
 }

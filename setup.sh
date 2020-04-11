@@ -91,7 +91,7 @@ function main() {
 			init
 			;;
 		"save_vscode")
-			clean
+			save_vscode_extension
 			;;
 		"clean")
 			clean

@@ -25,6 +25,9 @@ function install_deps() {
 		echo "Your platform ($(uname -a)) is not supported."
 		exit 1
 	fi
+	# git-completion
+	wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git-completion.bash
+	chmod 755 ~/.git-completion.bash
 }
 
 function save_vscode_extension() {

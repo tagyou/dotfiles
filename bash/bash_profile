@@ -2,6 +2,7 @@
 
 # load local bashrc
 if [ -e ~/.bashrc_local ]; then
+    echo "Loading ~/.bashrc_local"
     source ~/.bashrc_local
 fi
 
@@ -37,3 +38,11 @@ alias diff='colordiff -u'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+
+# pwgen with at least one special symbols
+alias pwgen='pwgen -y'
+
+# golang
+mkdir -p $HOME/go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin

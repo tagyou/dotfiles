@@ -77,6 +77,8 @@ function init() {
 	ln -sf ~/dotfiles/vim/vimrc  ~/.vimrc
 	echo "- .bash_profile to ~/"
 	ln -sf ~/dotfiles/bash/bash_profile  ~/.bash_profile
+	echo "- .inputrc to ~/"
+	ln -sf ~/dotfiles/readline/inputrc  ~/.inputrc
 }
 
 function clean() {

@@ -4,8 +4,11 @@
     "editor.lineHeight": 16,
     "editor.wordWrap": "on",
     "editor.wrappingIndent": "same",
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.lineHeight":1.1,
     "vim.searchHighlightColor": "rgba(0, 200, 0, 0.5)",
     "vim.hlsearch": true,
+    "vim.useSystemClipboard": true,
     "vim.insertModeKeyBindings": [
         {
             "before": ["j","k"],
@@ -13,8 +16,8 @@
         }
     ],
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.editor.enablePreview": false,
-    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.enablePreview": true,
+    "workbench.editor.enablePreviewFromQuickOpen": true,
     "workbench.editor.openPositioning": "last",
     "workbench.colorTheme": "Atom One Dark",
     "workbench.activityBar.visible": true,
@@ -24,8 +27,8 @@
     "python.formatting.provider": "autopep8",
     "python.linting.flake8Args": [
         "--max-line-length",
-        "88",
-        "--ignore=E302,E203,W503,W504",
+        "120",
+        "--ignore=E203,W503,W504",
     ],
     "python.formatting.autopep8Args": [
       "--max-line-length",
@@ -62,6 +65,8 @@
       "editor.quickSuggestions": true,
       "editor.snippetSuggestions": "top"
       },
-      "workbench.iconTheme": "material-icon-theme",
-      "material-icon-theme.opacity": 0.8
+    "workbench.iconTheme": "material-icon-theme",
+    "material-icon-theme.opacity": 0.8,
+    "window.zoomLevel": 0,
+    "go.formatTool": "goimports",
 }

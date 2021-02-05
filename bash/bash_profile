@@ -46,3 +46,26 @@ alias pwgen='pwgen -y'
 mkdir -p $HOME/go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+# poetry
+export PATH="$HOME/.poetry/bin:$PATH"
+
+# check if kubectl is installed
+kubectl > /dev/null
+if [ $? == 0 ]; then
+	# enable completion
+	source <(kubectl completion bash)
+	# setup KUBECONFIG
+	export KUBECONFIG=`ls ~/.kube/configs/* | tr '\n' ':'`
+fi
+
+# kubectl alias
+alias kc=kubectl
+complete -F __start_kubectl kc
+
+# check if stern is installed
+stern > /dev/null
+if [ $? == 0 ]; then
+	# enable completion
+	source <(stern --completion=bash)
+fi

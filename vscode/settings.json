@@ -28,7 +28,7 @@
     "python.linting.flake8Args": [
         "--max-line-length",
         "120",
-        "--ignore=E203,W503,W504",
+        "--ignore=E266,W503",
     ],
     "python.formatting.autopep8Args": [
       "--max-line-length",
@@ -69,4 +69,6 @@
     "material-icon-theme.opacity": 0.8,
     "window.zoomLevel": 0,
     "go.formatTool": "goimports",
+    "git.autofetch": true,
+    "yaml.schemaStore.enable": false,
 }

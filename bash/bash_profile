@@ -69,3 +69,6 @@ if [ $? == 0 ]; then
 	# enable completion
 	source <(stern --completion=bash)
 fi
+
+# disable Zsh warning on macOS
+export BASH_SILENCE_DEPRECATION_WARNING=1

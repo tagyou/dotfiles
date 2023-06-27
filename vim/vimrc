@@ -39,10 +39,15 @@ set listchars=tab:»\ ,trail:~
 set autoindent
 " スマートインデント
 set smartindent
+" 大文字小文字を区別しない
+set ignorecase
+set smartcase
 " デフォルトvimrc_exampleのtextwidth設定上書き
 autocmd FileType text setlocal textwidth=0
-" visual mode時にペーストした場所をヤンクしない（連続ペースト用）
+" visual mode時にペーストした場所をヤンクしない
 vnoremap <silent> <C-p> "0p<CR>
+" ペーストした場所をヤンクしない
+vnoremap p "_dP
 
 "---------------------------------
 " 画面分割の設定

@@ -21,6 +21,9 @@
     "workbench.editor.openPositioning": "last",
     "workbench.colorTheme": "Atom One Dark",
     "workbench.activityBar.visible": true,
+    "workbench.colorCustomizations": {
+      "tab.activeBackground": "#555555cc",
+    },
 
     "python.linting.flake8Enabled": true,
     "python.linting.pylintEnabled": false,
@@ -37,7 +40,7 @@
       "--aggressive",
     ],
     "explorer.confirmDelete": false,
-    "vsnotes.defaultNotePath": "~/GoogleDrive/Notes",
+    "vsnotes.defaultNotePath": "~/Notes",
     "vsnotes.noteTitleConvertSpaces": " ",
     "vsnotes.defaultNoteTitle": "{dt}_{title}.{ext}",
     "vsnotes.tokens": [
@@ -62,15 +65,36 @@
     ],
     "[markdown]":  {
       "editor.wordWrap": "on",
-      "editor.quickSuggestions": true,
+      "editor.quickSuggestions": {
+        "comments": "on",
+        "strings": "on",
+        "other": "on"
+      },
       "editor.snippetSuggestions": "top"
       },
     "workbench.iconTheme": "material-icon-theme",
     "material-icon-theme.opacity": 0.8,
-    "window.zoomLevel": 0,
     "go.formatTool": "goimports",
     "git.autofetch": true,
     "yaml.schemaStore.enable": false,
     "terminal.integrated.scrollback": 4000,
     "terminal.integrated.shell.osx": "/bin/bash",
+    "workbench.editorAssociations": {
+      "*.ipynb": "jupyter-notebook"
+    },
+    "redhat.telemetry.enabled": true,
+    "editor.cursorStyle": "line",
+    "editor.insertSpaces": false,
+    "editor.lineNumbers": "on",
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.cursorSurroundingLines": 5,
+    "notebook.cellToolbarLocation": {
+      "default": "right",
+      "jupyter-notebook": "left"
+    },
+    "git.ignoreLegacyWarning": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "[python]": {
+      "editor.formatOnType": true
+    },
 }

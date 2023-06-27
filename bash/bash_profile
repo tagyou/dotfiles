@@ -9,7 +9,8 @@ fi
 # bash-completion
 if [ "$(uname)" == 'Darwin' ]; then
 	OS='Mac'
-	source $(brew --prefix)/etc/bash_completion
+	export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+	[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
 	OS='Linux'
 	source /etc/bash_completion.d/*
@@ -42,6 +43,9 @@ alias ....='cd ../../..'
 # pwgen with at least one special symbols
 alias pwgen='pwgen -y'
 
+# uuidgen with lowercase
+alias uuidgen='uuidgen | tr "[:upper:]" "[:lower:]"'
+
 # golang
 mkdir -p $HOME/go
 export GOPATH=$HOME/go
@@ -49,6 +53,7 @@ export PATH=$PATH:$GOPATH/bin
 
 # poetry
 export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # check if kubectl is installed
 kubectl > /dev/null
@@ -72,3 +77,16 @@ fi
 
 # disable Zsh warning on macOS
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# Get iTerm2 function
+function iterm2pane() {
+	echo $ITERM_SESSION_ID | sed -r 's/w([0-9]+)t([0-9]+)p([0-9]+):.*/\3/g'
+}
+
+function cssh() {
+	i=`iterm2pane`
+	i=$((i+1))
+	echo "# iTerm2 pane No.${i}"
+	echo "# SSH to ${!i}"
+	ssh ${!i}
+}

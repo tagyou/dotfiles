@@ -79,6 +79,8 @@ function init() {
 	ln -sf ~/dotfiles/bash/bash_profile  ~/.bash_profile
 	echo "- .inputrc to ~/"
 	ln -sf ~/dotfiles/readline/inputrc  ~/.inputrc
+	echo "- gitignore_global to ~/"
+	ln -sf ~/dotfiles/gitignore_global  ~/.gitignore_global
 }
 
 function clean() {

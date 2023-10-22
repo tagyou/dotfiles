@@ -1,0 +1,67 @@
+#!/bin/sh
+
+# load local zshrc
+if [ -e ~/.zshrc_local ]; then
+    echo "Loading ~/.zshrc_local"
+    source ~/.zshrc_local
+fi
+
+# CLI prompt
+PROMPT="%n@%m %F{magenta}%1~%f %# "
+
+# commands with color
+alias ls='ls -G'
+alias ll='ls -G -lha'
+alias la='ls -G -a'
+alias grep='grep --color=auto'
+
+# color diff
+export LESS='-R'
+alias diff='colordiff -u'
+
+# cd extension
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# pwgen with at least one special symbols
+alias pwgen='pwgen -y'
+
+# uuidgen with lowercase
+alias uuidgen='uuidgen | tr "[:upper:]" "[:lower:]"'
+
+# golang
+mkdir -p $HOME/go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+# poetry
+export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# check if kubectl is installed
+kubectl > /dev/null
+if [ "$?" -eq 0 ]; then
+	# setup KUBECONFIG
+	export KUBECONFIG=`ls ~/.kube/configs/* | tr '\n' ':'`
+fi
+
+# kubectl alias
+alias kc=kubectl
+
+# Get iTerm2 function
+function iterm2pane() {
+	echo $ITERM_SESSION_ID | sed -r 's/w([0-9]+)t([0-9]+)p([0-9]+):.*/\3/g'
+}
+
+function cssh() {
+	i=`iterm2pane`
+	i=$((i+1))
+	echo "# iTerm2 pane No.${i}"
+	echo "# SSH to ${!i}"
+	ssh ${!i}
+}
+
+# bindkey
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word

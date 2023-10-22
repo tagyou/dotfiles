@@ -72,11 +72,22 @@ function init() {
 		mv ~/.bashrc ~/.bashrc_${TIME_STAMP}
 	fi
 
+	# --- backup exsiting .zprofile
+	if [ -e ~/.zprofile ]; then
+		mv ~/.zprofile ~/.zprofile_${TIME_STAMP}
+	fi
+	# --- backup exsiting .zshrc
+	if [ -e ~/.zshrc ]; then
+		mv ~/.zshrc ~/.zshrc_${TIME_STAMP}
+	fi
+
 	echo "[Init] Making symlinks"
 	echo "- .vimrc to ~/"
 	ln -sf ~/dotfiles/vim/vimrc  ~/.vimrc
 	echo "- .bash_profile to ~/"
 	ln -sf ~/dotfiles/bash/bash_profile  ~/.bash_profile
+	echo "- .zshrc to ~/"
+	ln -sf ~/dotfiles/zsh/zshrc  ~/.zshrc
 	echo "- .inputrc to ~/"
 	ln -sf ~/dotfiles/readline/inputrc  ~/.inputrc
 	echo "- gitignore_global to ~/"

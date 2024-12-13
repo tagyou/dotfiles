@@ -97,4 +97,7 @@
     "[python]": {
       "editor.formatOnType": true
     },
+    "projectManager.git.baseFolders": [
+      "/Users/yuki.taguchi/repos"
+    ],
 }
